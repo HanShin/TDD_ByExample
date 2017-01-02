@@ -1,9 +1,9 @@
-package Money;
+package MoneyTDD;
 
 /**
  * Created by shin on 2016. 12. 30..
  */
 public interface Expression {
-    Money reduce(String to);
+    Money reduce(Bank bank, String to);
 
 }
