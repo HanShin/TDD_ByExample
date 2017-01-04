@@ -94,4 +94,19 @@ public class MoneyTest {
         assertEquals(Money.dollar(15), result);
 
     }
+
+    public void testSumTimes(){
+        Expression fiveBucks = Money.dollar(5);
+        Expression tenfrancs = Money.franc(10);
+        Bank bank = new Bank();
+        bank.addRate("CHF", "USD", 2);
+        Expression sum = new Sum(fiveBucks,tenfrancs).times(2);
+        Money result = bank.reduce(sum,"USD");
+        assertEquals(Money.dollar(20), result);
+    }
+
+//
+//        Expression sum = Money.dollar(1).plus(Money.dollar(1));
+//        assertTrue(sum instanceof Money);
+//    }
 }
